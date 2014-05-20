@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: grave_info_development
+
+test:
+  adapter: postgresql
+  database: grave_info_test

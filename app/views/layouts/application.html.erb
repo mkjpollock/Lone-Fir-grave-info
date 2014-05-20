@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for?(:title) ? yield(:title) + " | Graveyard Shift" : "Gravyard Shift" %></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <div class="container" id="main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <%= link_to "Home", root_url, class: "navbar-brand pull-left" %>
+    <div class="navbar-text">
+      <center>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
+      </center>
+    </div>
+    <% if user_signed_in? %>
+      <%= link_to "Add Grave Info", new_grafe_path, class: "navbar-text pull-right btn btn-xs btn-success" %>
+      <%= link_to "Log Out", destroy_user_session_path, method: "delete", class: "navbar-text pull-right" %>
+      <div class="navbar-text pull-right">
+        Logged in as &nbsp; <%= link_to current_user.email, user_path(current_user), id: "white" %>
+      </div>
+    <% else %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "navbar-text pull-right" %>
+      <%= link_to "Log In", new_user_session_path, class: "navbar-text pull-right" %>
+    <% end %>
+  </div>
+
+
+<%= yield %>
+
+</div>
+</body>
+</html>
