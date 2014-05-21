@@ -15,6 +15,7 @@ gem 'devise'
 gem 'textacular'
 gem 'rest-client'
 gem 'stripe'
+gem 'cancancan', '~> 1.7'
 
 group :development do
   gem 'better_errors'
