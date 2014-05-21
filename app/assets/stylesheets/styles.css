@@ -1,7 +1,23 @@
 #main {
-	margin-top: 40px;
+	margin-top: 45px;
 }
 
 .navbar-text {
 	color: white !important;
 }
+
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin-right: 280px;
+  width: 50%;
+}
+
+#flash_notice {
+  background-color: green;
+
+}
+
+#flash_error {
+  background-color: red;
+}
+

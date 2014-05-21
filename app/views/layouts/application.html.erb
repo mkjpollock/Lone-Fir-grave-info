@@ -10,14 +10,17 @@
  <div class="container" id="main">
     <div class="navbar navbar-default navbar-fixed-top">
     <%= link_to "Home", root_url, class: "navbar-brand pull-left" %>
-    <div class="navbar-text">
+    <div class="navbar-text center">
       <center>
-        <%= flash[:notice] %>
-        <%= flash[:alert] %>
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%- end -%>
       </center>
     </div>
     <% if user_signed_in? %>
-      <%= link_to "Add Grave Info", new_grafe_path, class: "navbar-text pull-right btn btn-xs btn-success" %>
+      <% if can? :create, Grave %>
+        <%= link_to "Add Grave Info", new_grafe_path, class: "navbar-text pull-right btn btn-xs btn-success" %>
+      <% end %>
       <%= link_to "Log Out", destroy_user_session_path, method: "delete", class: "navbar-text pull-right" %>
       <div class="navbar-text pull-right">
         Logged in as &nbsp; <%= link_to current_user.email, user_path(current_user), id: "white" %>
@@ -27,7 +30,6 @@
       <%= link_to "Log In", new_user_session_path, class: "navbar-text pull-right" %>
     <% end %>
   </div>
-
 
 <%= yield %>
 
