@@ -9,7 +9,7 @@ class Ability
       can :create, Grave
       can :read, Grave
       can :update, Grave, :user_id == user.id
-    elsif user.roles.first.access_level == 2
+    elsif user.roles.first.access_level == 3
       can :manage, :all
     end
     # The third argument is an optional hash of conditions to further filter the

@@ -19,3 +19,7 @@ Setting up views for users, available to admin only?
 Can setup contribution statistics.
 
 Get AWS setup for storage.
+
+Fix devise views
+
+Add username?

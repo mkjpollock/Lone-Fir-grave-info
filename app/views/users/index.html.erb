@@ -1,0 +1,19 @@
+<h1>Users</h1>
+
+<h3>Admins</h3>
+
+<% @admins.each do |user| %>
+	<%= link_to user.email, user_path(user) %><br>
+<% end %>
+
+<h3>Contributors</h3>
+
+<% @contributors.each do |user| %>
+	<%= link_to user.email, user_path(user) %><br>
+<% end %>
+
+<h3>Visitors</h3>
+
+<% @visitors.each do |user| %>
+	<%= link_to user.email, user_path(user) %><br>
+<% end %>
