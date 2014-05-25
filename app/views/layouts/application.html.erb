@@ -6,8 +6,8 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
- <div class="container" id="main">
+<body id="main">
+ <div class="container">
     <div class="navbar navbar-default navbar-fixed-top">
     <%= link_to "Home", root_url, class: "navbar-brand pull-left" %>
     <% if can? :manage, :all %>

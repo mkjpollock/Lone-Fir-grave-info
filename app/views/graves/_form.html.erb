@@ -1,0 +1,16 @@
+<%= render 'layouts/errors', object: @grave %>
+
+<%= form_for @grave do |f| %>
+  <div class="form-group">
+    <%= f.label "Main Picture" %>
+    <%= f.file_field :mainpic %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :name, placeholder: "Name" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :description, cols: 60, rows: 10, placeholder: "Description" %>
+  </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit class: "btn btn-success" %>
+<% end %>

@@ -1,14 +1,15 @@
-## Grave Info
+# Grave Info
 
-# Current functionality:
-=========
+## Current functionality:
+----------------
+
 
 Signing in: Users can sign in using devise.
 
 Roles: Users have limited access to site depending on role, using CanCan. Users with the contributor role can create new entries and edit their own entries. Users with the admin role can access and edit all entries.
 
-#ToDos
-============
+## ToDos
+----------------
 
 Setting up views for graves.
 
