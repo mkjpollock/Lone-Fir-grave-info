@@ -1,5 +1,10 @@
 #main {
 	margin-top: 100px;
+	margin-bottom: 50px;
+}
+
+.margin-high {
+	margin-top: 30px;
 }
 
 .navbar-text {
@@ -14,10 +19,16 @@
 
 #flash_notice {
   background-color: green;
-
 }
 
 #flash_error {
   background-color: red;
 }
 
+.number-field {
+	width: 5%;
+}
+
+.inline {
+	display: inline;
+}

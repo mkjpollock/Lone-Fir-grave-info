@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526022851) do
+ActiveRecord::Schema.define(version: 20140526162650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,29 +23,75 @@ ActiveRecord::Schema.define(version: 20140526022851) do
     t.datetime "updated_at"
   end
 
+  create_table "base_materials", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "directions", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "epitaphs", force: true do |t|
+    t.string   "direction"
+    t.string   "condition"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "famnames", force: true do |t|
+    t.string   "name"
+    t.integer  "grave_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "graves", force: true do |t|
     t.string   "mainpic_file_name"
     t.string   "mainpic_content_type"
     t.integer  "mainpic_file_size"
     t.datetime "mainpic_updated_at"
     t.string   "name"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "block"
     t.integer  "lot"
     t.integer  "site"
-    t.string   "marker_on"
     t.string   "condition"
-    t.string   "design"
     t.string   "carver_name"
     t.string   "carver_city"
     t.string   "carver_location"
-    t.string   "epitaph_condition"
-    t.text     "epitaph_transcription"
     t.text     "comments"
     t.date     "survey_date"
+    t.string   "foundation"
+    t.string   "priority"
+    t.string   "treatment"
+    t.text     "design"
+  end
+
+  create_table "marker_conditions", force: true do |t|
+    t.string   "description"
+    t.integer  "broken_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "marker_materials", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "marker_types", force: true do |t|
+    t.string   "description"
+    t.string   "base"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", force: true do |t|

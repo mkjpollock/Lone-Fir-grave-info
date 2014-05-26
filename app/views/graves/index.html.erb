@@ -1,7 +1,6 @@
 <h1>Grave Sites</h1>
 
 <% @graves.each do |grave| %>
-	<h3><%= grave.name %></h3>
+	<h3><%= link_to grave.name, grafe_path(grave) %></h3>
 	<%= link_to image_tag(grave.mainpic(:small)), grafe_path(grave) %><br />
-	<%= link_to grave.description, grafe_path(grave) %>
 <% end %>

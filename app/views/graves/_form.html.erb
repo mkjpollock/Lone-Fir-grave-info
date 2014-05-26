@@ -1,15 +1,90 @@
 <%= render 'layouts/errors', object: @grave %>
 
+<h2>Basic Information</h2><br />
 <%= form_for @grave do |f| %>
+  <h4>Site Location</h4>
+  <br />
+  <div class="form-group inline">
+    <%= f.label "Block Number" %>
+    <%= f.text_field :block, class: "number-field" %>
+  </div>
+  <div class="form-group inline">
+    <%= f.label "Lot Number" %>
+    <%= f.text_field :lot, class: "number-field" %>
+  </div>
+  <div class="form-group inline">
+    <%= f.label "Grave Number" %>
+    <%= f.text_field :site, class: "number-field" %>
+  </div>
+  <br />
+  <h4 class="margin-high">Name</h4>
+  <div class="form-group">
+    <%= f.text_field :name %>
+  </div>
   <div class="form-group">
     <%= f.label "Main Picture" %>
     <%= f.file_field :mainpic %>
   </div>
+  <h4 class="margin-high">Condition</h4>
   <div class="form-group">
-    <%= f.text_field :name, placeholder: "Name" %>
+    <%= f.radio_button :condition, "Excellent" %>
+    <%= f.label "Excellent" %>
+    <%= f.radio_button :condition, "Good" %>
+    <%= f.label "Good" %>
+    <%= f.radio_button :condition, "Fair" %>
+    <%= f.label "Fair" %>
+    <%= f.radio_button :condition, "Poor" %>
+    <%= f.label "Poor" %>
+  </div>
+  <h4 class="margin-high">Design and Ornamentation</h4>
+  <div class="form-group">
+    <%= f.text_area :design, cols: 60, rows: 10, placeholder: "Enter description..." %>
+  </div>
+  <h4 class="margin-high">Stone Carver Information</h4>
+  <div class="form-group">
+    <%= f.text_field :carver_name, placeholder: "Stone Carver Name" %>
   </div>
   <div class="form-group">
-    <%= f.text_area :description, cols: 60, rows: 10, placeholder: "Description" %>
+    <%= f.text_field :carver_city, placeholder: "Stone Carver City" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :carver_location, placeholder: "Location On Marker" %>
+  </div>
+  <h4 class="margin-high">Comments</h4>
+  <div class="form-group">
+    <%= f.text_area :comments, cols: 60, rows: 10, placeholder: "Enter comments..." %>
+  </div>
+  <h4>Date</h4>
+  <div class="form-group">
+    <%= f.date_field :survey_date %>
+  </div>
+  <h4 class="margin-high">Priority</h4>
+  <div class="form-group">
+    <%= f.radio_button :priority, "Low" %>
+    <%= f.label "Low" %>
+    <%= f.radio_button :priority, "Medium" %>
+    <%= f.label "Medium" %>
+    <%= f.radio_button :priority, "High" %>
+    <%= f.label "High" %>
+  </div>
+  <h4 class="margin-high">Treatment</h4>
+  <div class="form-group">
+    <%= f.radio_button :treatment, "Tilted" %>
+    <%= f.label "Tilted" %>
+    <%= f.radio_button :treatment, "Sunken" %>
+    <%= f.label "Sunken" %>
+    <%= f.radio_button :treatment, "Repair-In Pieces" %>
+    <%= f.label "Repair-in Pieces" %>
+    <%= f.radio_button :treatment, "Repair-Loose to Base" %>
+    <%= f.label "Repair-Loose to Base" %>
+    <%= f.radio_button :treatment, "Repair-Loose to Plinth" %>
+    <%= f.label "Repair-Loose to Plinth" %>
+    <%= f.radio_button :treatment, "Clean-Mild" %>
+    <%= f.label "Clean-Mild" %>
+    <%= f.radio_button :treatment, "Clean-Medium" %>
+    <%= f.label "Clean-Medium" %>
+    <%= f.radio_button :treatment, "Clean-Heavy" %>
+    <%= f.label "Clean-Heavy" %>
   </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit class: "btn btn-success" %>
