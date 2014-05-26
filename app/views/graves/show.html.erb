@@ -1,3 +1,23 @@
+<% content_for(:title, "#{@grave.name}") %>
+
 <h1><%= @grave.name %></h1>
-<%= image_tag(@grave.mainpic(:medium)) %>
-<p><%= @grave.name %></p>
+<div class="row">
+  <div class="col-md-9 content">
+    <div class="col-md-5" id="description">
+      <%= image_tag(@grave.mainpic(:medium), class: "pull-left main-image") %>
+      <p><%= @grave.comments %></p>
+    </div>
+    <div class="col-md-4 pull-right" id="details">
+      <table class="table-striped table-bordered pull-right" id="details-table">
+        <tr><td>Surveyor: </td><td class="info"><%= @grave.user.email %></td></tr>
+        <tr><td>Block Number: </td><td class="info"><%= @grave.block %></td></tr>
+        <tr><td>Lot Number: </td><td class="info"><%= @grave.lot %></td></tr>
+        <tr><td>Grave Number: </td><td class="info"><%= @grave.site %></td></tr>
+        <tr><td>Condition: </td><td class="info"><%= @grave.condition %></td></tr>
+        <tr><td>Stone Carver Name: </td><td class="info"><%= @grave.carver_name %></td></tr>
+        <tr><td>Stone Carver City: </td><td class="info"><%= @grave.carver_city %></td></tr>
+        <tr><td>Carver Info Location: </td><td class="info"><%= @grave.carver_location %></td></tr>
+        <tr><td>Survey Date: </td><td class="info"><%= @grave.survey_date %></td></tr>
+      </table>
+    </div>
+  </div>

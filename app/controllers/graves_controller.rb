@@ -26,7 +26,7 @@ class GravesController < ApplicationController
 	private
 
 	def grave_params
-		params.require(:grave).permit(:mainpic, :name, :description, :user_id)
+		params.require(:grave).permit(:mainpic, :name, :comments, :user_id, :block, :lot, :site, :condition, :carver_name, :carver_city, :carver_location, :foundation, :priority, :treatment, :design, :cleaning, :survey_date)
 	end
 
 end

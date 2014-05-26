@@ -79,13 +79,18 @@
     <%= f.label "Repair-Loose to Base" %>
     <%= f.radio_button :treatment, "Repair-Loose to Plinth" %>
     <%= f.label "Repair-Loose to Plinth" %>
-    <%= f.radio_button :treatment, "Clean-Mild" %>
-    <%= f.label "Clean-Mild" %>
-    <%= f.radio_button :treatment, "Clean-Medium" %>
-    <%= f.label "Clean-Medium" %>
-    <%= f.radio_button :treatment, "Clean-Heavy" %>
-    <%= f.label "Clean-Heavy" %>
+  </div>
+  <h4 class="margin-high">Cleaning Needed</h4>
+  <div class="form-group">
+    <%= f.radio_button :cleaning, "None" %>
+    <%= f.label "None" %>
+    <%= f.radio_button :cleaning, "Mild" %>
+    <%= f.label "Mild" %>
+    <%= f.radio_button :cleaning, "Medium" %>
+    <%= f.label "Medium" %>
+    <%= f.radio_button :cleaning, "Heavy" %>
+    <%= f.label "Heavy" %>
   </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit class: "btn btn-success" %>
+  <%= f.submit "Create Entry", class: "btn btn-success" %>
 <% end %>
