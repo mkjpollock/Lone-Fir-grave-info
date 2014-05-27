@@ -1,0 +1,3 @@
+class BaseMaterialsController < ApplicationController
+	
+end

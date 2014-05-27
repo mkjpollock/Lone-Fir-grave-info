@@ -1,0 +1,3 @@
+class MarkerMaterialsController < ApplicationController
+
+end

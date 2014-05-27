@@ -1,0 +1,3 @@
+class FamnamesController < ApplicationController
+	
+end

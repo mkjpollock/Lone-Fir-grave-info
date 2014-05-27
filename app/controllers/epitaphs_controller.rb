@@ -1,0 +1,3 @@
+class EpitaphsController < ApplicationController
+	
+end

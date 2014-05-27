@@ -1,0 +1,3 @@
+class MarkerConditionsController < ApplicationController
+	
+end
