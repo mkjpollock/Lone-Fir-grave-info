@@ -3,6 +3,14 @@
 	margin-bottom: 50px;
 }
 
+.clear-left {
+  clear: left;
+}
+
+.display-block {
+  display: block;
+}
+
 .margin-high {
 	margin-top: 30px;
 }
@@ -43,7 +51,7 @@
   border-style:solid;
   border-width:2px;
   border-radius:10px;
-  padding: 20px 0px 20px 0px;
+  padding: 20px 10px 20px 10px;
   margin-right: 0px;
 }
 

@@ -4,7 +4,8 @@
 <div class="row-fluid">
   <div class="col-md-7 content">
     <div class="col-md-3" id="description">
-      <%= image_tag(@grave.mainpic(:medium), class: "pull-left main-image") %>
+      <%= image_tag(@grave.mainpic(:medium), class: "main-image") %>
+      <h4>Comments: </h4>
       <p><%= @grave.comments %></p>
     </div>
     <div class="col-md-4 pull-right" id="details">
@@ -81,5 +82,23 @@
         <p><%= link_to "Add Additional Marker Type (None added)", new_grafe_marker_type_path(@grave) %></p>
       <% end %>
   	</table>
+  </div>
+</div>
+<div class="clear-left display-block">
+  <div class="col-md-12 content margin-high">
+  <h1>Epitaphs</h1>
+  <% if @grave.epitaphs.count > 0 %>
+    <% @grave.epitaphs.each_with_index do |epitaph, index| %>
+      <% if index == 0 %>
+        <%= link_to "Add Epitaph", new_grafe_epitaph_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
+      <% end %>
+      <h4>Epitaph #<%= "#{index + 1}" %></h4>
+      <p>Direction Facing: <%= epitaph.direction %>
+      <p>Condition: <%= epitaph.direction %>
+      <p>Transcription: <%= epitaph.description %>
+    <% end %>
+  <% else %>
+    <p><%= link_to "Add Additional Epitaph (None added)", new_grafe_epitaph_path(@grave) %></p>
+  <% end %>
   </div>
 </div>

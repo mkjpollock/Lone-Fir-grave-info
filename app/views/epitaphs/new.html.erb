@@ -1,0 +1,41 @@
+<h1>Add Additional Epitaph to <%= @grave.name %></h1>
+<%= form_for @epitaph, url: grafe_epitaphs_path do |f| %>
+  <div class="form-group">
+    <h5>Direction Facing: </h5>
+    <%= f.radio_button :direction, "North" %>
+    <%= f.label "North" %>
+    <%= f.radio_button :direction, "South" %>
+    <%= f.label "South" %>
+    <%= f.radio_button :direction, "East" %>
+    <%= f.label "East" %>
+    <%= f.radio_button :direction, "West" %>
+    <%= f.label "West" %>
+    <%= f.radio_button :direction, "Northwest" %>
+    <%= f.label "Northwest" %>
+    <%= f.radio_button :direction, "Northeast" %>
+    <%= f.label "Northeast" %>
+    <%= f.radio_button :direction, "Southwest" %>
+    <%= f.label "Southwest" %>
+    <%= f.radio_button :direction, "Southeast" %>
+    <%= f.label "Southeast" %>
+  </div>
+  <div class="form-group">
+    <h5>Condition: </h5><br />
+    <%= f.radio_button :condition, "Clear" %>
+    <%= f.label "Clear" %>
+    <%= f.radio_button :condition, "Clear but worn" %>
+    <%= f.label "Clear but worn" %>
+    <%= f.radio_button :condition, "Decipherable" %>
+    <%= f.label "Decipherable" %>
+    <%= f.radio_button :condition, "Illegible" %>
+    <%= f.label "Illegible" %>
+    <%= f.radio_button :condition, "Other:" %>
+    <%= f.label "Other:" %>
+  </div>
+  <h4 class="margin-high">Transcribe Epitaph:</h4>
+  <div class="form-group">
+    <%= f.text_area :description, cols: 60, rows: 10, placeholder: "Enter transcription..." %>
+  </div>
+	<%= f.hidden_field :grave_id, value: @grave.id %>
+	<%= f.submit "Submit Epitaph", class: "btn btn-success" %>
+<% end %>
