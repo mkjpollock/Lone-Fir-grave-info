@@ -25,11 +25,18 @@
   <div class="col-md-5 content-right pull-right">
   	<p>Additional Information</p>
   	<table class="table-striped table-bordered" id="details-table">
-  		<% if !@grave.famnames.nil? %>
+  		<% if @grave.famnames.count > 0 %>
   	  	<% @grave.famnames.each_with_index do |famname, index| %>
- 		 	  	<tr><td>Associated Family Name (<%= "#{index +1}" %>): </td><td class="info"><%= famname.name %></td></tr>
+ 		 	  	<tr><td>Associated Name (<%= "#{index +1}" %>): </td><td class="info"><%= famname.name %></td></tr>
  		 		<% end %>
  		 	<% end %>
+ 		 	<p><%= link_to "Add Additional Name", new_grafe_famname_path(@grave) %></p>
+ 	 		<% if @grave.base_materials.count > 0 %>
+ 	 	  	<% @grave.base_materials.each_with_index do |material, index| %>
+ 			 	  <tr><td>Base Material (<%= "#{index +1}" %>): </td><td class="info"><%= material.description %></td></tr>
+ 			 	<% end %>
+ 			<% end %>
+ 			<p><%= link_to "Add Additional Base Material", new_grafe_base_material_path(@grave) %></p>
   	  <tr><td>Lot Number: </td><td class="info"><%= @grave.lot %></td></tr>
   	  <tr><td>Grave Number: </td><td class="info"><%= @grave.site %></td></tr>
   	  <tr><td>Condition: </td><td class="info"><%= @grave.condition %></td></tr>

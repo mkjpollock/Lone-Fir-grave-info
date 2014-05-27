@@ -1,0 +1,19 @@
+<h1>Add Additional Base Material to <%= @grave.name %></h1>
+<%= form_for @base_material, url: grafe_base_materials_path do |f| %>
+  <div class="form-group">
+    <%= f.radio_button :description, "Basalt" %>
+    <%= f.label "Basalt" %>
+    <%= f.radio_button :description, "Concrete" %>
+    <%= f.label "Concrete" %>
+    <%= f.radio_button :description, "Granite" %>
+    <%= f.label "Granite" %>
+    <%= f.radio_button :description, "Marble" %>
+    <%= f.label "Marble" %>
+    <%= f.radio_button :description, "Metal" %>
+    <%= f.label "Metal" %>
+    <%= f.radio_button :description, "Sandstone" %>
+    <%= f.label "Sandstone" %>
+  </div>
+	<%= f.hidden_field :grave_id, value: @grave.id %>
+	<%= f.submit "Submit Description", class: "btn btn-success" %>
+<% end %>

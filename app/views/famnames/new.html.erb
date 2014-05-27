@@ -1,0 +1,7 @@
+<h1>Add Additional Name to <%= @grave.name %></h1>
+<%= form_for @famname, url: grafe_famnames_path do |f| %>
+	<%= f.label "Name" %>
+	<%= f.text_field :name %>
+	<%= f.hidden_field :grave_id, value: @grave.id %>
+	<%= f.submit "Submit Name", class: "btn btn-success" %>
+<% end %>
