@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526171618) do
+ActiveRecord::Schema.define(version: 20140527010730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,10 +29,20 @@ ActiveRecord::Schema.define(version: 20140526171618) do
     t.datetime "updated_at"
   end
 
+  create_table "base_materials_graves", id: false, force: true do |t|
+    t.integer "grave_id"
+    t.integer "base_material_id"
+  end
+
   create_table "directions", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "directions_graves", id: false, force: true do |t|
+    t.integer "grave_id"
+    t.integer "direction_id"
   end
 
   create_table "epitaphs", force: true do |t|
@@ -41,6 +51,11 @@ ActiveRecord::Schema.define(version: 20140526171618) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "epitaphs_graves", id: false, force: true do |t|
+    t.integer "grave_id"
+    t.integer "epitaph_id"
   end
 
   create_table "famnames", force: true do |t|
@@ -73,6 +88,21 @@ ActiveRecord::Schema.define(version: 20140526171618) do
     t.string   "treatment"
     t.text     "design"
     t.string   "cleaning"
+  end
+
+  create_table "graves_marker_conditions", id: false, force: true do |t|
+    t.integer "grave_id"
+    t.integer "marker_condition_id"
+  end
+
+  create_table "graves_marker_materials", id: false, force: true do |t|
+    t.integer "grave_id"
+    t.integer "marker_material_id"
+  end
+
+  create_table "graves_marker_types", id: false, force: true do |t|
+    t.integer "grave_id"
+    t.integer "marker_type_id"
   end
 
   create_table "marker_conditions", force: true do |t|

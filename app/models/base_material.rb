@@ -1,3 +1,3 @@
 class BaseMaterial < ActiveRecord::Base
-	belongs_to :grave
+	has_and_belongs_to_many :graves
 end
