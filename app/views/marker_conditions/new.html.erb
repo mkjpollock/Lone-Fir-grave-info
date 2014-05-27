@@ -1,0 +1,27 @@
+<h1>Add Additional Marker Condition to <%= @grave.name %></h1>
+<%= form_for @marker_condition, url: grafe_marker_conditions_path do |f| %>
+  <div class="form-group">
+    <%= f.radio_button :description, "Biological Growth (heavy)" %>
+    <%= f.label "Biological Growth (heavy)" %>
+    <%= f.radio_button :description, "Broken Pieces" %>
+    <%= f.label "Broken Pieces" %>
+    <%= f.radio_button :description, "Detached from base" %>
+    <%= f.label "Detached from Base" %>
+    <%= f.radio_button :description, "Loose Base" %>
+    <%= f.label "Loose Base" %>
+    <%= f.radio_button :description, "Loose Plinth" %>
+    <%= f.label "Loose Plinth" %>
+    <%= f.radio_button :description, "Previously Repaired" %>
+    <%= f.label "Previously Repaired" %>
+    <%= f.radio_button :description, "Spalling/Flaking" %>
+    <%= f.label "Spalling/Flaking" %>
+    <%= f.radio_button :description, "Stained/Discolored" %>
+    <%= f.label "Stained/Discolored" %>
+    <%= f.radio_button :description, "Sunken" %>
+    <%= f.label "Sunken" %>
+    <%= f.radio_button :description, "Tilted" %>
+    <%= f.label "Tilted" %>
+  </div>
+	<%= f.hidden_field :grave_id, value: @grave.id %>
+	<%= f.submit "Submit Condition", class: "btn btn-success" %>
+<% end %>

@@ -1,0 +1,23 @@
+<h1>Add Additional Marker Material to <%= @grave.name %></h1>
+<%= form_for @marker_material, url: grafe_marker_materials_path do |f| %>
+  <div class="form-group">
+    <%= f.radio_button :description, "Bronze" %>
+    <%= f.label "Bronze" %>
+    <%= f.radio_button :description, "Concrete" %>
+    <%= f.label "Concrete" %>
+    <%= f.radio_button :description, "Granite" %>
+    <%= f.label "Granite" %>
+    <%= f.radio_button :description, "Marble" %>
+    <%= f.label "Marble" %>
+    <%= f.radio_button :description, "Temporary Metal" %>
+    <%= f.label "Temporary Metal" %>
+    <%= f.radio_button :description, "Sandstone" %>
+    <%= f.label "Sandstone" %>
+    <%= f.radio_button :description, "Wood" %>
+    <%= f.label "Wood" %>
+    <%= f.radio_button :description, "Zinc" %>
+    <%= f.label "Zinc" %>
+  </div>
+	<%= f.hidden_field :grave_id, value: @grave.id %>
+	<%= f.submit "Submit Description", class: "btn btn-success" %>
+<% end %>

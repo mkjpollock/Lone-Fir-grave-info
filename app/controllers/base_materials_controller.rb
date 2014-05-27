@@ -3,7 +3,6 @@ class BaseMaterialsController < ApplicationController
 	def new
 		@base_material = BaseMaterial.new
 		@grave = Grave.find(params[:grafe_id])
-		@base_materials = BaseMaterial.all
 	end
 
 	def create

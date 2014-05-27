@@ -27,23 +27,59 @@
   	<table class="table-striped table-bordered" id="details-table">
   		<% if @grave.famnames.count > 0 %>
   	  	<% @grave.famnames.each_with_index do |famname, index| %>
- 		 	  	<tr><td>Associated Name (<%= "#{index +1}" %>): </td><td class="info"><%= famname.name %></td></tr>
+ 		 	  	<tr><td>Associated Name (<%= "#{index +1}" %>): </td><td class="info"><%= famname.name %>
+          <% if index == 0 %>
+            <button class="btn btn-xs btn-warning">Add Name</button>
+          <% end %>
+          </td></tr>
  		 		<% end %>
+      <% else %>
+        <p><%= link_to "Add Additional Name (None Added)", new_grafe_famname_path(@grave) %></p>
  		 	<% end %>
- 		 	<p><%= link_to "Add Additional Name", new_grafe_famname_path(@grave) %></p>
  	 		<% if @grave.base_materials.count > 0 %>
  	 	  	<% @grave.base_materials.each_with_index do |material, index| %>
- 			 	  <tr><td>Base Material (<%= "#{index +1}" %>): </td><td class="info"><%= material.description %></td></tr>
+ 			 	  <tr><td>Base Material (<%= "#{index +1}" %>): </td><td class="info"><%= material.description %>
+          <% if index == 0 %>
+            <%= link_to "Add Material", new_grafe_base_material_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
+          <% end %>
+          </td></tr>
  			 	<% end %>
+      <% else %>
+        <p><%= link_to "Add Additional Base Material (None added)", new_grafe_base_material_path(@grave) %></p>
  			<% end %>
- 			<p><%= link_to "Add Additional Base Material", new_grafe_base_material_path(@grave) %></p>
-  	  <tr><td>Lot Number: </td><td class="info"><%= @grave.lot %></td></tr>
-  	  <tr><td>Grave Number: </td><td class="info"><%= @grave.site %></td></tr>
-  	  <tr><td>Condition: </td><td class="info"><%= @grave.condition %></td></tr>
-  	  <tr><td>Stone Carver Name: </td><td class="info"><%= @grave.carver_name %></td></tr>
-  	  <tr><td>Stone Carver City: </td><td class="info"><%= @grave.carver_city %></td></tr>
-  	  <tr><td>Carver Info Location: </td><td class="info"><%= @grave.carver_location %></td></tr>
-  	  <tr><td>Survey Date: </td><td class="info"><%= @grave.survey_date %></td></tr>
+      <% if @grave.marker_conditions.count > 0 %>
+        <% @grave.marker_conditions.each_with_index do |condition, index| %>
+          <tr><td>Marker Condition (<%= "#{index +1}" %>): </td><td class="info"><%= condition.description %>
+         <% if index == 0 %>
+           <%= link_to "Add Condition", new_grafe_marker_condition_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
+         <% end %>
+         </td></tr>
+        <% end %>
+      <% else %>
+        <p><%= link_to "Add Additional Marker Condition (None added)", new_grafe_marker_condition_path(@grave) %></p>
+      <% end %>
+      <% if @grave.marker_materials.count > 0 %>
+        <% @grave.marker_materials.each_with_index do |material, index| %>
+          <tr><td>Marker Material (<%= "#{index +1}" %>): </td><td class="info"><%= material.description %>
+         <% if index == 0 %>
+           <%= link_to "Add Material", new_grafe_marker_material_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
+         <% end %>
+         </td></tr>
+        <% end %>
+      <% else %>
+        <p><%= link_to "Add Additional Marker Material (None added)", new_grafe_marker_material_path(@grave) %></p>
+      <% end %>
+      <% if @grave.marker_types.count > 0 %>
+        <% @grave.marker_types.each_with_index do |type, index| %>
+          <tr><td>Marker Type (<%= "#{index +1}" %>): </td><td class="info"><%= type.description %> on: <%= type.marker_on %>
+         <% if index == 0 %>
+           <%= link_to "Add Type", new_grafe_marker_type_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
+         <% end %>
+         </td></tr>
+        <% end %>
+      <% else %>
+        <p><%= link_to "Add Additional Marker Type (None added)", new_grafe_marker_type_path(@grave) %></p>
+      <% end %>
   	</table>
   </div>
 </div>

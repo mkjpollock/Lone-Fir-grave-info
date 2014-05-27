@@ -1,0 +1,39 @@
+<h1>Add Additional Marker Type to <%= @grave.name %></h1>
+<%= form_for @marker_type, url: grafe_marker_types_path do |f| %>
+  <div class="form-group">
+    <h5>Type: </h5><br />
+    <%= f.radio_button :description, "Block" %>
+    <%= f.label "Block" %>
+    <%= f.radio_button :description, "Column" %>
+    <%= f.label "Column" %>
+    <%= f.radio_button :description, "Flush Ground" %>
+    <%= f.label "Flush Ground" %>
+    <%= f.radio_button :description, "Horizontal Cylinder" %>
+    <%= f.label "Horizontal Cylinder" %>
+    <%= f.radio_button :description, "Obelisk" %>
+    <%= f.label "Obelisk" %>
+    <%= f.radio_button :description, "Pillow" %>
+    <%= f.label "Pillow" %>
+    <%= f.radio_button :description, "Shaft" %>
+    <%= f.label "Shaft" %>
+    <%= f.radio_button :description, "Slant" %>
+    <%= f.label "Slant" %>
+    <%= f.radio_button :description, "Tablet" %>
+    <%= f.label "Tablet" %>
+  </div>
+  <div class="form-group">
+    <h5>Marker On: </h5><br />
+    <%= f.radio_button :marker_on, "Base" %>
+    <%= f.label "Base" %>
+    <%= f.radio_button :marker_on, "Plinth" %>
+    <%= f.label "Plinth" %>
+    <%= f.radio_button :marker_on, "Foundation" %>
+    <%= f.label "Foundation" %>
+    <%= f.radio_button :marker_on, "Plinth and Base" %>
+    <%= f.label "Plinth and Base" %>
+    <%= f.radio_button :marker_on, "Plinth, Base, & Foundation" %>
+    <%= f.label "Plinth, Base, & Foundation" %>
+  </div>
+	<%= f.hidden_field :grave_id, value: @grave.id %>
+	<%= f.submit "Submit Type", class: "btn btn-success" %>
+<% end %>
