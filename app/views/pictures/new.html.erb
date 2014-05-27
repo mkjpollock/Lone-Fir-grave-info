@@ -1,0 +1,12 @@
+<h1>Add Additional Picture For <%= @grave.name %></h1>
+<%= form_for @picture, url: grafe_pictures_path do |f| %>
+	<div class="form-group">
+		<%= f.label "Add Picture" %>
+		<%= f.file_field :image %>
+	</div>
+	<div class="form-group">
+		<%= f.text_area :description, cols: 60, rows: 10, placeholder: "Enter description..." %>
+		<%= f.hidden_field :grave_id, value: @grave.id %>
+	</div>
+	<%= f.submit "Submit Picture", class: "btn btn-success" %>
+<% end %>

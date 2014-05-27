@@ -1,9 +1,10 @@
 class Grave < ActiveRecord::Base
 	belongs_to :user
+	has_many :famnames
+	has_many :pictures
 	has_and_belongs_to_many :base_materials
 	has_and_belongs_to_many :directions
 	has_and_belongs_to_many :epitaphs
-	has_many :famnames
 	has_and_belongs_to_many :marker_conditions
 	has_and_belongs_to_many :marker_materials
 	has_and_belongs_to_many :marker_types

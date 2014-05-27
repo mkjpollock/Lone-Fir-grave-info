@@ -10,5 +10,6 @@ GraveInfo::Application.routes.draw do
 	  resources :marker_conditions, :only => [:new, :create]
 	  resources :marker_materials, :only => [:new, :create]
 	  resources :marker_types, :only => [:new, :create]
+	  resources :pictures, :only => [:new, :create]
 	end
 end

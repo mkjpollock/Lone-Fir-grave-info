@@ -1,7 +1,7 @@
 <h1>Add Additional Epitaph to <%= @grave.name %></h1>
 <%= form_for @epitaph, url: grafe_epitaphs_path do |f| %>
   <div class="form-group">
-    <h5>Direction Facing: </h5>
+    <h5>Direction Facing: </h5><br />
     <%= f.radio_button :direction, "North" %>
     <%= f.label "North" %>
     <%= f.radio_button :direction, "South" %>
@@ -29,7 +29,7 @@
     <%= f.label "Decipherable" %>
     <%= f.radio_button :condition, "Illegible" %>
     <%= f.label "Illegible" %>
-    <%= f.radio_button :condition, "Other:" %>
+    <%= f.radio_button :condition, "Other"%>
     <%= f.label "Other:" %>
   </div>
   <h4 class="margin-high">Transcribe Epitaph:</h4>

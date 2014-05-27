@@ -46,7 +46,7 @@
           </td></tr>
  			 	<% end %>
       <% else %>
-        <p><%= link_to "Add Additional Base Material (None added)", new_grafe_base_material_path(@grave) %></p>
+        <p><%= link_to "Add Base Material (None added)", new_grafe_base_material_path(@grave) %></p>
  			<% end %>
       <% if @grave.marker_conditions.count > 0 %>
         <% @grave.marker_conditions.each_with_index do |condition, index| %>
@@ -57,7 +57,7 @@
          </td></tr>
         <% end %>
       <% else %>
-        <p><%= link_to "Add Additional Marker Condition (None added)", new_grafe_marker_condition_path(@grave) %></p>
+        <p><%= link_to "Add Marker Condition (None added)", new_grafe_marker_condition_path(@grave) %></p>
       <% end %>
       <% if @grave.marker_materials.count > 0 %>
         <% @grave.marker_materials.each_with_index do |material, index| %>
@@ -68,7 +68,7 @@
          </td></tr>
         <% end %>
       <% else %>
-        <p><%= link_to "Add Additional Marker Material (None added)", new_grafe_marker_material_path(@grave) %></p>
+        <p><%= link_to "Add Marker Material (None added)", new_grafe_marker_material_path(@grave) %></p>
       <% end %>
       <% if @grave.marker_types.count > 0 %>
         <% @grave.marker_types.each_with_index do |type, index| %>
@@ -79,7 +79,7 @@
          </td></tr>
         <% end %>
       <% else %>
-        <p><%= link_to "Add Additional Marker Type (None added)", new_grafe_marker_type_path(@grave) %></p>
+        <p><%= link_to "Add Marker Type (None added)", new_grafe_marker_type_path(@grave) %></p>
       <% end %>
   	</table>
   </div>
@@ -94,11 +94,28 @@
       <% end %>
       <h4>Epitaph #<%= "#{index + 1}" %></h4>
       <p>Direction Facing: <%= epitaph.direction %>
-      <p>Condition: <%= epitaph.direction %>
+      <p>Condition: <%= epitaph.condition %>
       <p>Transcription: <%= epitaph.description %>
     <% end %>
   <% else %>
-    <p><%= link_to "Add Additional Epitaph (None added)", new_grafe_epitaph_path(@grave) %></p>
+    <p><%= link_to "Add Epitaph (None added)", new_grafe_epitaph_path(@grave) %></p>
+  <% end %>
+  </div>
+</div>
+<div class="clear-left display-block">
+  <div class="col-md-12 content margin-high">
+  <h1>Additional Pictures</h1>
+  <% if @grave.pictures.count > 0 %>
+    <% @grave.pictures.each_with_index do |picture, index| %>
+      <% if index == 0 %>
+        <%= link_to "Add Picture", new_grafe_picture_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
+      <% end %>
+      <h4>Picture #<%= "#{index + 1}" %></h4>
+      <%= image_tag(picture.image(:medium), class: "main-image") %>
+      <p>Description: <%= picture.description %>
+    <% end %>
+  <% else %>
+    <p><%= link_to "Add Picture (None added)", new_grafe_picture_path(@grave) %></p>
   <% end %>
   </div>
 </div>
