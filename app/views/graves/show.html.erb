@@ -29,57 +29,67 @@
   		<% if @grave.famnames.count > 0 %>
   	  	<% @grave.famnames.each_with_index do |famname, index| %>
  		 	  	<tr><td>Associated Name (<%= "#{index +1}" %>): </td><td class="info"><%= famname.name %>
-          <% if index == 0 %>
+          <% if can?(:manage, :all) || (current_user == @grave.user) && index == 0 %>
             <button class="btn btn-xs btn-warning">Add Name</button>
           <% end %>
           </td></tr>
  		 		<% end %>
       <% else %>
-        <p><%= link_to "Add Additional Name (None Added)", new_grafe_famname_path(@grave) %></p>
+        <% if can?(:manage, :all) || (current_user == @grave.user) %>
+          <p><%= link_to "Add Additional Name (None Added)", new_grafe_famname_path(@grave) %></p>
+        <% end %>
  		 	<% end %>
  	 		<% if @grave.base_materials.count > 0 %>
  	 	  	<% @grave.base_materials.each_with_index do |material, index| %>
  			 	  <tr><td>Base Material (<%= "#{index +1}" %>): </td><td class="info"><%= material.description %>
-          <% if index == 0 %>
+          <% if can?(:manage, :all) || (current_user == @grave.user) && index == 0 %>
             <%= link_to "Add Material", new_grafe_base_material_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
           <% end %>
           </td></tr>
  			 	<% end %>
       <% else %>
-        <p><%= link_to "Add Base Material (None added)", new_grafe_base_material_path(@grave) %></p>
+        <% if can?(:manage, :all) || (current_user == @grave.user) %>
+          <p><%= link_to "Add Base Material (None added)", new_grafe_base_material_path(@grave) %></p>
+        <% end %>
  			<% end %>
       <% if @grave.marker_conditions.count > 0 %>
         <% @grave.marker_conditions.each_with_index do |condition, index| %>
           <tr><td>Marker Condition (<%= "#{index +1}" %>): </td><td class="info"><%= condition.description %>
-         <% if index == 0 %>
+         <% if can?(:manage, :all) || (current_user == @grave.user) && index == 0 %>
            <%= link_to "Add Condition", new_grafe_marker_condition_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
          <% end %>
          </td></tr>
         <% end %>
       <% else %>
-        <p><%= link_to "Add Marker Condition (None added)", new_grafe_marker_condition_path(@grave) %></p>
+        <% if can?(:manage, :all) || (current_user == @grave.user) %>
+          <p><%= link_to "Add Marker Condition (None added)", new_grafe_marker_condition_path(@grave) %></p>
+        <% end %>
       <% end %>
       <% if @grave.marker_materials.count > 0 %>
         <% @grave.marker_materials.each_with_index do |material, index| %>
           <tr><td>Marker Material (<%= "#{index +1}" %>): </td><td class="info"><%= material.description %>
-         <% if index == 0 %>
-           <%= link_to "Add Material", new_grafe_marker_material_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
-         <% end %>
-         </td></tr>
+          <% if can?(:manage, :all) || (current_user == @grave.user) && index == 0 %>
+            <%= link_to "Add Material", new_grafe_marker_material_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
+          <% end %>
+        </td></tr>
         <% end %>
       <% else %>
-        <p><%= link_to "Add Marker Material (None added)", new_grafe_marker_material_path(@grave) %></p>
+        <% if can?(:manage, :all) || (current_user == @grave.user) %>
+          <p><%= link_to "Add Marker Material (None added)", new_grafe_marker_material_path(@grave) %></p>
+        <% end %>
       <% end %>
       <% if @grave.marker_types.count > 0 %>
         <% @grave.marker_types.each_with_index do |type, index| %>
           <tr><td>Marker Type (<%= "#{index +1}" %>): </td><td class="info"><%= type.description %> on: <%= type.marker_on %>
-         <% if index == 0 %>
+         <% if can?(:manage, :all) || (current_user == @grave.user) && index == 0 %>
            <%= link_to "Add Type", new_grafe_marker_type_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
          <% end %>
          </td></tr>
         <% end %>
       <% else %>
-        <p><%= link_to "Add Marker Type (None added)", new_grafe_marker_type_path(@grave) %></p>
+        <% if can?(:manage, :all) || (current_user == @grave.user) %>
+          <p><%= link_to "Add Marker Type (None added)", new_grafe_marker_type_path(@grave) %></p>
+        <% end %>
       <% end %>
   	</table>
   </div>
@@ -89,7 +99,7 @@
   <h1>Epitaphs</h1>
   <% if @grave.epitaphs.count > 0 %>
     <% @grave.epitaphs.each_with_index do |epitaph, index| %>
-      <% if index == 0 %>
+      <% if can?(:manage, :all) || (current_user == @grave.user) && index == 0 %>
         <%= link_to "Add Epitaph", new_grafe_epitaph_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
       <% end %>
       <h4>Epitaph #<%= "#{index + 1}" %></h4>
@@ -98,7 +108,9 @@
       <p>Transcription: <%= epitaph.description %>
     <% end %>
   <% else %>
-    <p><%= link_to "Add Epitaph (None added)", new_grafe_epitaph_path(@grave) %></p>
+    <% if can?(:manage, :all) || (current_user == @grave.user) %>
+      <p><%= link_to "Add Epitaph (None added)", new_grafe_epitaph_path(@grave) %></p>
+    <% end %>
   <% end %>
   </div>
 </div>
@@ -107,7 +119,7 @@
   <h1>Additional Pictures</h1>
   <% if @grave.pictures.count > 0 %>
     <% @grave.pictures.each_with_index do |picture, index| %>
-      <% if index == 0 %>
+      <% if can?(:manage, :all) || (current_user == @grave.user) && index == 0 %>
         <%= link_to "Add Picture", new_grafe_picture_path(@grave), class: "btn btn-xs btn-warning table-btn" %>
       <% end %>
       <h4>Picture #<%= "#{index + 1}" %></h4>
@@ -115,7 +127,9 @@
       <p>Description: <%= picture.description %>
     <% end %>
   <% else %>
-    <p><%= link_to "Add Picture (None added)", new_grafe_picture_path(@grave) %></p>
+    <% if can?(:manage, :all) || (current_user == @grave.user) %>
+      <p><%= link_to "Add Picture (None added)", new_grafe_picture_path(@grave) %></p>
+    <% end %>
   <% end %>
   </div>
 </div>
