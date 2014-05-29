@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails'
+gem 'aws-sdk'
 gem 'rails_12factor', group: :production
 gem 'rails', '4.0.4'
 gem 'pg'
@@ -32,7 +34,6 @@ group :test, :development do
   gem 'faker'
   gem 'poltergeist'
   gem 'letter_opener'
-  gem 'dotenv-rails'
 end
 
 group :test do
