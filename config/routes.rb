@@ -2,6 +2,7 @@ GraveInfo::Application.routes.draw do
   root to: "home#index.html"
   devise_for :users
   resources :users
+  resources :assignments, :only => :create
   resources :graves do
 	  resources :base_materials, :only => [:new, :create]
 	  resources :directions, :only => [:new, :create]

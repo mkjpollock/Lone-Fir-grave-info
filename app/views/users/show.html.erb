@@ -1,10 +1,19 @@
 <h1><%= @user.email %></h1>
 
 <% if @user.roles.first != nil %>
-	<h3><%= @user.roles.first.name %></h3>
+	<h3><%= @user.roles.first.name %></h3><br />
 <% end %>
 
-<#% if can? :manage, :all %>
-	<#%= form_for @user, user_path(@user) do |f| %>
-
-<#% end %>
+<h4>Change User's Role</h4>
+<% if can? :manage, :all %>
+	<%= form_tag assignments_path, method: :post do %>
+		<div class="form-group">
+			<% @roles.each do |role| %>
+				<%= radio_button_tag :role, "#{role.name}" %>
+				<%= label_tag "#{role.name}" %>
+			<% end %>
+			<%= hidden_field_tag :user_id, "#{@user.id}" %>
+		</div>
+		<%= submit_tag "Update Role", class: "btn btn-warning" %>
+	<% end %>
+<% end %>

@@ -12,6 +12,12 @@
 	<%= link_to user.email, user_path(user) %><br>
 <% end %>
 
+<h3>Guests</h3>
+
+<% @guests.each do |user| %>
+	<%= link_to user.email, user_path(user) %><br>
+<% end %>
+
 <h3>Visitors</h3>
 
 <% @visitors.each do |user| %>

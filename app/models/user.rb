@@ -26,6 +26,16 @@ class User < ActiveRecord::Base
   	return admins
   end
 
+  def self.guests
+    guests = []
+    User.all.each do |user|
+      if !user.roles.first.nil? && user.roles.first.name == "Guest"
+        guests << user
+      end
+    end
+    return guests
+  end
+
   def self.visitors
   	visitors = []
   	User.all.each do |user|
