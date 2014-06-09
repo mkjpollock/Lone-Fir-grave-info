@@ -1,5 +1,5 @@
 GraveInfo::Application.routes.draw do
-  root to: "home#index.html"
+  root to: "homes#index.html"
   devise_for :users
   resources :users
   resources :assignments, :only => :create

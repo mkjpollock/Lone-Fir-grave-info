@@ -8,7 +8,7 @@ class Grave < ActiveRecord::Base
 	has_and_belongs_to_many :marker_conditions
 	has_and_belongs_to_many :marker_materials
 	has_and_belongs_to_many :marker_types
-	has_attached_file :mainpic, :styles => { small: "100x100>", medium: "250x250>" }
+	has_attached_file :mainpic, :styles => { small: "100x100>", medium: "250x250>", large: "650x450" }
 
   validates_attachment_content_type :mainpic, :content_type =>
   ["image/jpg", "image/jpeg", "image/png"]
