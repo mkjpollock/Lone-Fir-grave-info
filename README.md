@@ -10,7 +10,7 @@ Roles: Users have limited access to site depending on role, using CanCan. Users 
 
 Graves: Users with correct permissions can create graves. Users with admin status and users that have created the grave can update graves. Graves have a database table for basic information and additional tables for data that can have multiple values.
 
-AWS storage connected, Deployed to Heroku.
+AWS storage connected, deployed to Heroku.
 
 ## ToDos
 ----------------
