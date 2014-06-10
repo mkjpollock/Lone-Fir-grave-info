@@ -12,6 +12,8 @@ Graves: Users with correct permissions can create graves. Users with admin statu
 
 AWS storage connected, deployed to Heroku.
 
+Added responsive design to grave show page, allowing it to work with all devices.
+
 ## ToDos
 ----------------
 
